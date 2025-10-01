@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:15
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: youruser
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: yourdatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    container_name: next-app
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://youruser:yourpassword@database:5432/yourdatabase
+    depends_on:
+      - database
+    volumes: 
+      - ..:/workspace
+
+volumes:
+  postgres_data:
