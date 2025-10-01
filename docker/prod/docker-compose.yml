@@ -21,6 +21,7 @@ services:
       LOCAL_URL: http://host.docker.internal
     depends_on:
       - database
+    volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
