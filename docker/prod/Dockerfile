@@ -1,6 +1,6 @@
 FROM node:22-slim AS base
 
-WORKDIR /workspace
+WORKDIR /app
 
 RUN apt-get update && apt-get install -y curl unzip
 
