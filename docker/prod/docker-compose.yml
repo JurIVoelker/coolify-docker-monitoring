@@ -10,7 +10,6 @@ services:
       POSTGRES_DB: postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - /var/run/docker.sock:/var/run/docker.sock
 
   app:
     build:
@@ -22,6 +21,7 @@ services:
       LOCAL_URL: http://host.docker.internal
     depends_on:
       - database
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   postgres_data:
