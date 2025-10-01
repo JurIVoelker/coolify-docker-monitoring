@@ -12,9 +12,6 @@ ENV PATH="${BUN_INSTALL}/bin:${PATH}"
 COPY ./package.json ./
 RUN bun i
 
-FROM base AS build
-
-COPY --from=base . ./node_modules
 COPY . .
 
 RUN bun run build
