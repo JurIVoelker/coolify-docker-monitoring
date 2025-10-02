@@ -12,18 +12,17 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   app:
-    # build:
-    #   context: ..
-    #   dockerfile: /docker/Dockerfile
-    image: node:18
+    build:
+      context: ..
+      dockerfile: /docker/Dockerfile
     container_name: next-app
     environment:
       DATABASE_URL: postgres://user:password@database:5432/postgres
       LOCAL_URL: http://host.docker.internal
     depends_on:
       - database
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+    # volumes:
+    #   - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   postgres_data:
