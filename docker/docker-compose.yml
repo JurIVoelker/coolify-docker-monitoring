@@ -13,7 +13,7 @@ services:
 
   app:
     build:
-      context: ..
+      context: .
       dockerfile: /docker/Dockerfile
     container_name: next-app
     environment:
