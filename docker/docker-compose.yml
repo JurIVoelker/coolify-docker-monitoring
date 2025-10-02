@@ -13,8 +13,8 @@ services:
 
   app:
     build:
-      context: ../..
-      dockerfile: /docker/prod/Dockerfile
+      context: ..
+      dockerfile: /docker/Dockerfile
     container_name: next-app
     environment:
       DATABASE_URL: postgres://user:password@database:5432/postgres
