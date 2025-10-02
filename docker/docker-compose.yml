@@ -12,9 +12,10 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   app:
-    build:
-      context: ..
-      dockerfile: /docker/Dockerfile
+    # build:
+    #   context: ..
+    #   dockerfile: /docker/Dockerfile
+    image: node:18
     container_name: next-app
     environment:
       DATABASE_URL: postgres://user:password@database:5432/postgres
