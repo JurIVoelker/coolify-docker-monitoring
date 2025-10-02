@@ -14,7 +14,7 @@ services:
   app:
     build:
       context: ../..
-      dockerfile: /docker
+      dockerfile: /docker/prod/Dockerfile
     container_name: next-app
     environment:
       DATABASE_URL: postgres://user:password@database:5432/postgres
